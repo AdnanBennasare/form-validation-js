@@ -1,184 +1,92 @@
-
-// ====================  name  ====================================
-
-
+// ====================  declaration  ====================================
 let inputOne = document.querySelector('#username');
-let regexx = /^[a-zA-Z-\s]+$/;
-const rger = /0(6|7|5)[0-9]{8}$/
-const arr = [];
+let lastname = document.querySelector('#lastname');
+let phoneNum = document.querySelector('#phone');
+let emailAdress = document.querySelector('#email');
+let ginre = document.getElementsByName('ginre');
 let resultOne = document.querySelector('#result1');
+let resultTwo = document.querySelector('#result2');
+let resultFour = document.querySelector('#result4');
+let resultThree = document.querySelector('#result3');
+let resultSix = document.getElementById('result7');
 
-
-
-
-
+let reg = /^[a-zA-Z-\s]+$/;
+const rger = /0(6|7|5)[0-9]{8}$/
+let rgerr = /([a-z\d\.-]+)@(gmail|ofppt)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+const arr = [];
+// ========================= name ====================================
 
 inputOne.onblur = function () {
-    resultOne.innerHTML = ""
-    console.log('hhhhh');
-
-
-    if (inputOne.value.match(regexx)) {
-
+    if (inputOne.value.match(reg)) {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-check"></i> valid'
         inputOne.style.borderColor = "green"
         resultOne.style.color = "green"
-
-
     } else if (inputOne.value.length >= 30) {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> name must be under 30 characters'
         inputOne.style.borderColor = "red"
         resultOne.style.color = "red"
-
     } else if (inputOne.value.length < 3) {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> must be atleast 3 characters'
         inputOne.style.borderColor = "red"
         resultOne.style.color = "red"
-
-    }
-
-    else {
+    } else {
         resultOne.style.color = "red"
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> unvalid'
         inputOne.style.borderColor = "red"
-
     }
 }
+// ========================= last name ====================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// =========================  last name      ====================================
-
-
-
-
-let lastname = document.querySelector('#lastname');
-let reg = /^[a-zA-Z-\s]+$/;
-let resultTwo = document.querySelector('#result2');
 lastname.onblur = function () {
-    resultTwo.innerHTML = ""
-    console.log('hhhhh');
-
     if (lastname.value.match(reg)) {
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-check"></i> valid'
         lastname.style.borderColor = "green"
         resultTwo.style.color = "green"
-
     } else if (lastname.value.length < 3) {
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> name must be atleast 3 characters'
         lastname.style.borderColor = "red"
         resultTwo.style.color = "red"
-
     } else if (lastname.value.length >= 30) {
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> name must be under 30 characters'
         lastname.style.borderColor = "red"
         resultTwo.style.color = "red"
-
     } else {
-
         resultTwo.style.color = "red"
         resultTwo.innerHTML = ' <i class="fa-solid fa-circle-exclamation"></i> unvalid'
         lastname.style.borderColor = "red"
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ================== email ===========================================
 
-
-let emailAdress = document.querySelector('#email');
-let resultThree = document.querySelector('#result3');
-let rgerr = /([a-z\d\.-]+)@(gmail|ofppt)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 emailAdress.onblur = function () {
 
     if (emailAdress.value.match(rgerr)) {
         resultThree.innerHTML = '<i class="fa-solid fa-circle-check"></i> valid adress'
         emailAdress.style.borderColor = "green"
         resultThree.style.color = "green"
-
-
     } else {
         resultThree.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Given email-id is not valid'
         emailAdress.style.borderColor = "red"
         resultThree.style.color = "red"
-
-
-
     }
 }
 
-
-
-
-
-
-
-
-
-
 // ==================  phone number  ============================
 
-
-
-
-
-let phoneNum = document.querySelector('#phone');
-let resultFour = document.querySelector('#result4');
 phoneNum.onblur = function () {
-
-
     if (phoneNum.value.match(rger)) {
         resultFour.innerHTML = '<i class="fa-solid fa-circle-check"></i> valid number'
         phoneNum.style.borderColor = "green"
         resultFour.style.color = "green"
-
-
-
     } else {
         resultFour.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Given number is not valid'
         phoneNum.style.borderColor = "red"
         resultFour.style.color = "red"
-
     }
-
 }
-
 // =======================  dwb101      =======================
-
-
-
-
 function gochk() {
     let resultFive = document.getElementById('result5');
-
     let allGroup = document.getElementsByName("chk");
     let total = 0;
 
@@ -191,12 +99,9 @@ function gochk() {
         resultFive.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> please check one groupe'
         resultFive.style.color = "red"
         return false;
-
     } else if (total == 0) {
         resultFive.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> choose an option'
         resultFive.style.color = "red"
-
-
     }
     else {
         resultFive.innerHTML = '<i class="fa-solid fa-circle-check"></i> valid'
@@ -204,47 +109,27 @@ function gochk() {
     }
 }
 // ================  man women   ========================
-
-
-
 function srrs() {
-
-
-    let ginre = document.getElementsByName('ginre');
-let resultSix = document.getElementById('result7');
-
-
-
 if (ginre[0].checked === false && ginre[1].checked == false) {
 
     resultSix.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> choose your gender'
     resultSix.style.color = "red"
-
 }
-
 else {
     resultSix.innerHTML = '<i class="fa-solid fa-circle-check"></i> Vous êtes prêt à partir'
     resultSix.style.color = "green"
+}  
 }
-    
-}
 
 
 
-
-
-// ====================== Onclick ======================================================================================
-
+// ====================== Onclick ====================================================
 
 document.getElementById("btn").onclick = function (e) {
     e.preventDefault();
   
 
-
-
-
     let inputOne = document.querySelector('#username');
-    let regexx = /^[a-zA-Z-\s]+$/;
     const rger = /0(6|7|5)[0-9]{8}$/
     const arr = [];
     let resultOne = document.querySelector('#result1');
@@ -263,13 +148,7 @@ let resultFour = document.querySelector('#result4');
 let ginre = document.getElementsByName('ginre');
 let resultSix = document.getElementById('result7');
 
-
-
-
 // ====================== name ==============================
-
-
-
     if (inputOne.value.length === 0) {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> name required'
         inputOne.style.borderColor = "red"
@@ -278,24 +157,16 @@ let resultSix = document.getElementById('result7');
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> 30 characters is the maximum'
         inputOne.style.borderColor = "red"
         resultOne.style.color = "red"
-    } else if (regexx.test(inputOne.value) === false) {
+    } else if (reg.test(inputOne.value) === false) {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> only characters are autorized'
         inputOne.style.borderColor = "red"
         resultOne.style.color = "red"
     } else {
         resultOne.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
         arr.push(true);
-       
-
     }
 
-
-
 // ====================== lastname =====================================
-
-
-
-
     if (lastname.value.length === 0) {
 
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> last name required'
@@ -305,7 +176,7 @@ let resultSix = document.getElementById('result7');
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> 30 characters is the maximum'
         lastname.style.borderColor = "red"
         resultTwo.style.color = "red"
-    } else if (regexx.test(lastname.value) === false) {
+    } else if (reg.test(lastname.value) === false) {
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> only letters are required'
         lastname.style.borderColor = "red"
         resultTwo.style.color = "red"
@@ -313,18 +184,11 @@ let resultSix = document.getElementById('result7');
         resultTwo.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
         arr.push(true);
     }
-
 // ====================== Email adresse =====================================
-
-
-
-
     if (emailAdress.value.length === 0) {
-
         resultThree.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> email is required'
         emailAdress.style.borderColor = "red"
         resultThree.style.color = "red"
-
     } else if (rgerr.test(emailAdress.value) === false) {
         resultThree.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> this is not a valid email'
         emailAdress.style.borderColor = "red"
@@ -334,12 +198,7 @@ let resultSix = document.getElementById('result7');
         arr.push(true);
     }
 
-
 // ====================== Phone =====================================
-
-
-
-
 
     if (phoneNum.value.length === 0) {
         resultFour.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> phone number is required'
@@ -347,7 +206,6 @@ let resultSix = document.getElementById('result7');
         resultFour.style.color = "red"
 
     } else if (rger.test(phoneNum.value) === false) {
-
         resultFour.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> this phone number is unvalid'
         phoneNum.style.borderColor = "red"
         resultFour.style.color = "red"
@@ -357,20 +215,7 @@ let resultSix = document.getElementById('result7');
 
     }
 
-
-
-
-
-
-
 // ====================== women men =====================================
-
-
-
-  
-
-
-
     if (ginre[0].checked === false && ginre[1].checked == false) {
 
         resultSix.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> choose your gender'
@@ -380,15 +225,8 @@ let resultSix = document.getElementById('result7');
         resultSix.style.color = "green"
         arr.push(true);
     }
-    
-
 
 // ====================== dwb101 =====================================
-
-
-
-
-
     var a = document.getElementsByName('chk');
     var newvar = 0;
     var count;
@@ -416,17 +254,7 @@ let resultSix = document.getElementById('result7');
         arr.push(true);
     }
 
-
-
-
-
-
-
 // ====================== clubs musique =====================================
-
-
-
-
     let resulteight = document.getElementById("result8");
 
     if(classes.selectedOptions.length === 0){
@@ -445,13 +273,7 @@ let resultSix = document.getElementById('result7');
         arr.push(true);
     }
 
-
 // ====================== clubs =====================================
-
-
-
-
-
     if (arr.length === 7) {
         let form = document.getElementById("form");
         form.submit();
